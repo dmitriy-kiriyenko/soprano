@@ -16,7 +16,11 @@ Capone could be installed either as a gem or as Rails plugin.
 
 ### Gem (preferred)
 
-Add to the end of your `config/environments/development.rb` file:
+For Rails 3 add to your `Gemfile`:
+
+    gem 'capone', :require => false, :version => '>= 0.1.0'
+
+For Rails 2 add to the end of your `config/environments/development.rb` file:
 
     config.gem 'capone', :lib => false, :version => '>= 0.1.0'
 
