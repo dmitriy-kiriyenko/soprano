@@ -3,12 +3,12 @@ $:.push File.expand_path("../lib", __FILE__)
 require "capone/version"
 
 Gem::Specification.new do |s|
-  s.name        = "capone"
+  s.name        = "dimkiriyenko-capone"
   s.version     = Capone::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Denis Barushev"]
-  s.email       = ["barushev@gmail.com"]
-  s.homepage    = "http://github.com/denis/capone"
+  s.authors     = ["Denis Barushev", "Dmitriy Kiriyenko"]
+  s.email       = ["barushev@gmail.com", "dmitriy.kiriyenko@gmail.com"]
+  s.homepage    = "https://github.com/dmitriy-kiriyenko/capone"
   s.summary     = %q{Capone is the set of rake tasks and capistrano recipes.}
   s.description = %q{Capone is the set of rake tasks and capistrano recipes.
                      Use it to avoid writing typical scenarios and maintaining them
