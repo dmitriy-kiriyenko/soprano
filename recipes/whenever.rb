@@ -4,7 +4,8 @@ namespace :capone do
       Update the crontab file with whenever.
     DESC
     task :update_crontab, :roles => :db do
-      run "cd #{release_path} && whenever --set environment=#{rails_env} --update-crontab #{deploy_to}"
+      whenever_command = fetch(:whenever_command, "whenever")
+      run "cd #{release_path} && #{whenever_command} --set environment=#{rails_env} --update-crontab #{deploy_to}"
     end
   end
 end
