@@ -1,4 +1,4 @@
-namespace :capone do
+namespace :soprano do
   namespace :nginx do
     desc <<-DESC
       Enable virtual host.
@@ -27,8 +27,8 @@ end
 
 on :load do
   if fetch(:web_server, :nginx) == :nginx
-    before "deploy:start",   "capone:nginx:enable_vhost"
-    after  "deploy:stop",    "capone:nginx:disable_vhost"
-    after  "deploy:restart", "capone:nginx:reload_if_config_file_changed"
+    before "deploy:start",   "soprano:nginx:enable_vhost"
+    after  "deploy:stop",    "soprano:nginx:disable_vhost"
+    after  "deploy:restart", "soprano:nginx:reload_if_config_file_changed"
   end
 end

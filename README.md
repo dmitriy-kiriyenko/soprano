@@ -1,46 +1,33 @@
-# Capone
+# Soprano
 
-Capone is the set of Capistrano recipes that help me to deploy my
+Soprano is the set of Capistrano recipes that help me to deploy my
 applications.
 
-Capone by default uses Mongrel cluster (or Passenger) as an application
+Soprano by default uses Mongrel cluster (or Passenger) as an application
 server, nginx as a web server, MySQL as a database server and git as a SCM.
 
-The latest version of Capone was inspired by Rubaidh's
+The latest version of Soprano was inspired by Rubaidh's
 [Rubaidhstrano](http://github.com/rubaidh/rubaidhstrano) and some code has
 been borrowed from its sources.
 
 ## Installation
 
-Capone could be installed either as a gem or as Rails plugin.
-
-### Gem (preferred)
-
 For Rails 3 add to your `Gemfile`:
 
-    gem 'capone', :require => false, :version => '>= 0.1.0'
-
-For Rails 2 add to the end of your `config/environments/development.rb` file:
-
-    config.gem 'capone', :lib => false, :version => '>= 0.1.0'
-
-### Rails plugin
-
-    ./script/plugin install git://github.com/denis/capone.git
+    gem 'soprano', :require => false, :version => '>= 0.1.0'
 
 ## Example usage
 
-To start using Capone you just need to add `require "capone"` to your
-`config/deploy.rb` file (only if Capone is installed as a gem) and set some
-variables:
+To start using Soprano you just need to add `require "soprano"` to your
+`config/deploy.rb` file and set some variables:
 
-    require "capone"
+    require "soprano"
 
     set :application, "set your application name here"
     set :repository,  "set your repository location here"
     set :host,        "set your host here"
 
-    # See capone/recipes/defaults.rb for defaults
+    # See soprano/recipes/defaults.rb for defaults
 
 ## Features
 
@@ -66,4 +53,4 @@ Other features in process...
 
 ## Copyright
 
-Copyright (c) 2009 Denis Barushev. See LICENSE for details.
+Copyright (c) 2011 Dmitriy Kiriyenko. See LICENSE for details.

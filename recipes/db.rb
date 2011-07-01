@@ -1,4 +1,4 @@
-namespace :capone do
+namespace :soprano do
   namespace :db do
     desc <<-DESC
       Create MySQL user and database using data from config/database.yml.
@@ -75,14 +75,14 @@ end
 
 on :load do
   if fetch(:setup_database_after_deploy_setup, true)
-    after "deploy:setup", "capone:db:setup"
+    after "deploy:setup", "soprano:db:setup"
   end
   if fetch(:load_fixtures_to_database_after_deploy_cold, false)
-    after "deploy:cold", "capone:db:load_fixtures"
+    after "deploy:cold", "soprano:db:load_fixtures"
   end
 
   if fetch(:backup_database_before_migrations, false)
-    before "deploy:migrate", "capone:db:backup"
+    before "deploy:migrate", "soprano:db:backup"
   end
 
   if fetch(:disable_web_during_migrations, false)

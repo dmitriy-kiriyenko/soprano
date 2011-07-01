@@ -1,3 +1,3 @@
 task :replicate do
-  capone.db.replicate
+  soprano.db.replicate
 end

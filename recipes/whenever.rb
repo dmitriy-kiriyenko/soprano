@@ -1,4 +1,4 @@
-namespace :capone do
+namespace :soprano do
   namespace :whenever do
     desc <<-DESC
       Update the crontab file with whenever.
@@ -12,6 +12,6 @@ end
 
 on :load do
   if fetch(:whenever, false)
-    after "deploy:symlink", "capone:whenever:update_crontab"
+    after "deploy:symlink", "soprano:whenever:update_crontab"
   end
 end

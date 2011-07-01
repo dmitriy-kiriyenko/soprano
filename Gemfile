@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in capone.gemspec
+# Specify your gem's dependencies in soprano.gemspec
 gemspec

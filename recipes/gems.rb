@@ -1,4 +1,4 @@
-namespace :capone do
+namespace :soprano do
   namespace :gems do
     desc <<-DESC
       Install gems needed by application.
@@ -18,6 +18,6 @@ end
 
 on :load do
   if fetch(:install_gems, true)
-    after "deploy:update_code", "capone:gems:install"
+    after "deploy:update_code", "soprano:gems:install"
   end
 end

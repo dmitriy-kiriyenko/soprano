@@ -1,5 +1,5 @@
 unless Capistrano::Configuration.respond_to?(:instance)
-  abort "Capone requires Capistrano 2"
+  abort "Soprano requires Capistrano 2"
 end
 
 Capistrano::Configuration.instance.load do
