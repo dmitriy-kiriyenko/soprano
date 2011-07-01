@@ -19,6 +19,7 @@ rdoc
 pkg
 *.gem
 .bundle
+Gemfile.lock
 pkg/*
 
 ## PROJECT::SPECIFIC
