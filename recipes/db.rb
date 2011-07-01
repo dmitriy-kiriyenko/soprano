@@ -24,7 +24,7 @@ namespace :capone do
     task :backup, :roles => :db, :only => { :primary => true } do
       config = YAML::load(File.open("config/database.yml"))[rails_env]
       case config["adapter"]
-        when "mysql"
+        when "mysql", "mysql2"
           cmd = ["mysqldump"]
           cmd << "--host='#{config['host']}'" unless config["host"].nil?
           cmd << "--user='#{config['username'].nil? ? 'root' : config['username']}'"
@@ -54,7 +54,7 @@ namespace :capone do
 
       config = YAML::load(File.open("config/database.yml"))["development"]
       case config["adapter"]
-        when "mysql"
+        when "mysql", "mysql2"
           cmd = ["bzcat db/#{rails_env}-data.sql.bz2 | mysql"]
           cmd << "--host='#{config['host']}'" unless config["host"].nil?
           cmd << "--user='#{config['username'].nil? ? 'root' : config['username']}'"
