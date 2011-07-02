@@ -77,6 +77,7 @@ on :load do
   if fetch(:setup_database_after_deploy_setup, true)
     after "deploy:setup", "soprano:db:setup"
   end
+
   if fetch(:load_fixtures_to_database_after_deploy_cold, false)
     after "deploy:cold", "soprano:db:load_fixtures"
   end
