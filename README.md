@@ -19,7 +19,7 @@ been borrowed from its sources.
 
 For Rails 3 add to your `Gemfile`:
 
-    gem 'soprano', :require => false, :version => '>= 0.1.0'
+    gem 'soprano', :require => false
 
 ## Example usage
 
