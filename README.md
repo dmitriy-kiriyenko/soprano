@@ -36,19 +36,7 @@ To start using Soprano you just need to add `require "soprano"` to your
 
 ## Features
 
-### Whenever
-
-Using [whenever](https://github.com/javan/whenever) is as easy as `set`ing `:whenever` to `true`. Just like this:
-
-    set :whenever, true
-
-Whenever will use your application deploy path as crontab identifier.
-
-You may wish to override the command, used to invoke whenever, e.g., to use Bundler:
-
-    set :whenever_command, 'bundle exec whenever'
-
-Other features in process...
+Readme about features in process...
 
 ## Thanks
 
