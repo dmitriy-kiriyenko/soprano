@@ -40,9 +40,10 @@ Readme about features in process...
 
 ## Thanks
 
-- Jamis Buck for [Capistrano](http://github.com/jamis/capistrano),
+- Jamis Buck for [Capistrano](https://github.com/halorgium/capistrano),
 - Rubaidh Ltd for their awesome
-  [Rubaidhstrano](http://github.com/rubaidh/rubaidhstrano).
+  [Rubaidhstrano](http://github.com/rubaidh/rubaidhstrano),
+- Denis Barushev for [Capone](https://github.com/denis/capone).
 
 ## Copyright
 
