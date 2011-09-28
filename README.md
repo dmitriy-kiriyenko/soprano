@@ -1,9 +1,6 @@
 # Soprano
 
-[1]: http://www.imdb.com/title/tt0141842/
-[2]: http://i.min.us/idGXKU.jpeg
-
-[![The Sopranos][2]][1]
+[![The Sopranos][http://i.min.us/idGXKU.jpeg]][http://www.imdb.com/title/tt0141842/]
 
 Soprano is the set of Capistrano recipes that help me to deploy my
 applications.
