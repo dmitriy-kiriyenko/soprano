@@ -33,7 +33,27 @@ To start using Soprano you just need to add `require "soprano"` to your
 
 ## Features
 
-Readme about features in process...
+### Remote
+
+*Sometimes* we need to execute an arbitrary command or script on our
+server within the application. To aid with thin, Soprano offers a bunch
+of `remote` scripts. For example:
+
+    cap remote:command -s cmd="ls -l" # You'll even get the output
+
+Similar tasks exist for rake, thor and runner. Try `cap -T remote`. Note:
+runner does not put to the STDOUT anything.
+
+Don't forget to use `-s` option. Also wrap `cmd=` argument in quotes.
+Yeah, this is not comfortable, but it's intentional. Consider it a
+syntax vinegar. If you have a repeated task, write a Capistrano recipe
+for it. This remote calls are for really occasional tasks.
+
+You also have `cap remote:tail` to tail the application log.
+
+### Other
+
+Readme about other features in process...
 
 ## Thanks
 
