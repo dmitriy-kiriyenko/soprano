@@ -51,6 +51,9 @@ for it. This remote calls are for really occasional tasks.
 
 You also have `cap remote:tail` to tail the application log.
 
+If all you need is just remotely run the rake tasks, you may also want to
+consider using [Cape](https://github.com/njonsson/cape).
+
 ### Other
 
 Readme about other features in process...
