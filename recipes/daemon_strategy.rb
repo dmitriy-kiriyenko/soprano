@@ -1,7 +1,10 @@
 on :load do
-  strategy = fetch(:daemon_strategy, :passenger)
+  strategy = fetch(:daemon_strategy)
 
   if [:passenger, :mongrel_cluster].include? strategy
-    load File.join(File.dirname(__FILE__), "daemon_strategies", "#{strategy}.rb")
+    puts "Providing strategy via set :daemon_strategy, #{strategy} is deprecated!"
+    puts "Use require 'servers/#{strategy}' instead."
+
+    load File.join(File.dirname(__FILE__), "servers", "#{strategy}.rb")
   end
 end
