@@ -1,6 +1,6 @@
 Capistrano::Configuration.instance(:must_exist).load do
   def unicorn_conf
-    fetch(:unicorn_conf, "#{deploy_to}/current/config/unicorn.rb")
+    fetch(:unicorn_conf, 'config/unicorn.rb')
   end
 
   def unicorn_bin
