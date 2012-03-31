@@ -14,7 +14,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   namespace :deploy do
     desc "Start application."
     task :start, :roles => :app do
-      run "bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D"
+      run "cd #{release_path} && #{unicorn_bin} -c #{unicorn_conf} -E #{rails_env} -D"
     end
 
     desc "Stop application."
