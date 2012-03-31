@@ -1,10 +1,14 @@
 Capistrano::Configuration.instance(:must_exist).load do
   def unicorn_conf
-    fetch(:unicorn_conf, 'config/unicorn.rb')
+    fetch(:unicorn_conf, "#{deploy_to}/current/config/unicorn.rb")
   end
 
   def unicorn_bin
     fetch(:unicorn_bin, 'bundle exec unicorn')
+  end
+
+  def unicorn_pid
+    fetch(:unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid")
   end
 
   namespace :deploy do

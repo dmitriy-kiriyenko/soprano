@@ -4,7 +4,7 @@ require "soprano/version"
 
 Gem::Specification.new do |s|
   s.name        = "soprano"
-  s.version     = Capone::VERSION
+  s.version     = Soprano::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Dmitriy Kiriyenko"]
   s.email       = ["dmitriy.kiriyenko@gmail.com"]

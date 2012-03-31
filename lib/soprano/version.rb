@@ -1,3 +1,3 @@
-module Capone
-  VERSION = "0.90-pre"
+module Soprano
+  VERSION = "0.90.pre"
 end
