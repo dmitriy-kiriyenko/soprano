@@ -26,7 +26,7 @@ namespace :soprano do
 end
 
 on :load do
-  if fetch(:web_server, :nginx) == :nginx
+  if fetch(:link_vhost_from_app, false)
     before "deploy:start",   "soprano:nginx:enable_vhost"
     after  "deploy:stop",    "soprano:nginx:disable_vhost"
     after  "deploy:restart", "soprano:nginx:reload_if_config_file_changed"
