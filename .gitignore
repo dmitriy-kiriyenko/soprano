@@ -23,4 +23,3 @@ Gemfile.lock
 pkg/*
 
 ## PROJECT::SPECIFIC
-.rvmrc
