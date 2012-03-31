@@ -24,7 +24,7 @@ Capistrano::Configuration.instance(:must_exist).load do
 
     desc "Restart application."
     task :restart, :roles => :app do
-      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -HUP `cat #{unicorn_pid}`; else cd #{release_path} && #{unicorn_bin} -c #{unicorn_conf} -E #{rails_env} -D; fi"
+      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{release_path} && #{unicorn_bin} -c #{unicorn_conf} -E #{rails_env} -D; fi"
     end
   end
 
