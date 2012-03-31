@@ -1,7 +1,7 @@
 on :load do
-  strategy = fetch(:daemon_strategy)
+  strategy = fetch(:daemon_strategy, nil)
 
-  if [:passenger, :mongrel_cluster].include? strategy
+  if strategy && [:passenger, :mongrel_cluster].include?(strategy)
     puts "Providing strategy via set :daemon_strategy, #{strategy} is deprecated!"
     puts "Use require 'servers/#{strategy}' instead."
 
