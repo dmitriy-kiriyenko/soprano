@@ -1,3 +1,3 @@
 module Capone
-  VERSION = "0.61"
+  VERSION = "0.90-pre"
 end
