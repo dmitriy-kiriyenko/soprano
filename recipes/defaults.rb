@@ -19,9 +19,6 @@ ssh_options[:forward_agent] = true
 
 # You can redefine these variables in your config/deploy.rb
 
-# set :daemon_strategy, :mongrel_cluster
-# set :web_server, :nginx
-
 # set :install_gems, true
 
 # set :backup_database_before_migrations, false
