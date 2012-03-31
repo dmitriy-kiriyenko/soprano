@@ -1,6 +1,6 @@
 Capistrano::Configuration.instance(:must_exist).load do
   def unicorn_conf
-    fetch(:unicorn_conf, "#{deploy_to}/current/config/unicorn.rb")
+    fetch(:unicorn_conf, "#{current_path}/config/unicorn.rb")
   end
 
   def unicorn_bin
@@ -24,7 +24,7 @@ Capistrano::Configuration.instance(:must_exist).load do
 
     desc "Restart application."
     task :restart, :roles => :app do
-      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -HUP `cat #{unicorn_pid}`; else cd #{deploy_to}/current && #{unicorn_bin} -c #{unicorn_conf} -E #{rails_env} -D; fi"
+      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -HUP `cat #{unicorn_pid}`; else cd #{current_path} && #{unicorn_bin} -c #{unicorn_conf} -E #{rails_env} -D; fi"
     end
   end
 
