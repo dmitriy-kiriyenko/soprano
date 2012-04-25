@@ -2,7 +2,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   namespace :remote do
     def get_cmd
       cmd = self[:cmd]
-      raise "A command must be given. Pleae, call the task with -s cmd=\"your command\"" unless cmd
+      raise "A command must be given. Please, call the task with -s cmd=\"your command\"" unless cmd
       cmd
     end
 
