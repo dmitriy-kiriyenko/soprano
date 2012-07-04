@@ -1,5 +1,7 @@
 # Soprano
 
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dmitriy-kiriyenko/soprano)
+
 [![The Sopranos](http://i.minus.com/idGXKU.jpeg)](http://www.imdb.com/title/tt0141842/)
 
 Soprano is the set of Capistrano recipes that help me to deploy my
