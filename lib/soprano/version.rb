@@ -1,3 +1,3 @@
 module Soprano
-  VERSION = "0.92"
+  VERSION = "0.95"
 end
