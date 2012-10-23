@@ -4,8 +4,6 @@ Capistrano::Configuration.instance(:must_exist).load do
 
   set :rails_env, "production"
 
-  set(:deploy_to) { "/var/www/apps/#{application}" }
-
   role(:app) { host }
   role(:web) { host }
   role(:db, :primary => true) { host }
