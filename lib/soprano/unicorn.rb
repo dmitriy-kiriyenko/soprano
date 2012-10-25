@@ -11,6 +11,14 @@ Capistrano::Configuration.instance(:must_exist).load do
     fetch(:unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid")
   end
 
+  def restart_signal
+    fetch(:restart_signal, 'USR2')
+  end
+
+  def kill_signal
+    fetch(:kill_signal, 'QUIT')
+  end
+
   namespace :deploy do
     desc "Start application."
     task :start, :roles => :app do
@@ -19,12 +27,12 @@ Capistrano::Configuration.instance(:must_exist).load do
 
     desc "Stop application."
     task :stop, :roles => :app do
-      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
+      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -#{kill_signal} `cat #{unicorn_pid}`; fi"
     end
 
     desc "Restart application."
     task :restart, :roles => :app do
-      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{current_path} && #{unicorn_bin} -c #{unicorn_conf} -E #{rails_env} -D; fi"
+      run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -#{restart_signal} `cat #{unicorn_pid}`; else cd #{current_path} && #{unicorn_bin} -c #{unicorn_conf} -E #{rails_env} -D; fi"
     end
   end
 
