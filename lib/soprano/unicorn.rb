@@ -36,5 +36,4 @@ Capistrano::Configuration.instance(:must_exist).load do
     end
   end
 
-  depend :remote, :gem, "passenger", ">=2.2.2"
 end
