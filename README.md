@@ -41,10 +41,19 @@ To start using Soprano you just need to add `require "soprano"` to your
 server within the application. To aid with thin, Soprano offers a bunch
 of `remote` scripts. For example:
 
-    cap remote:command -s cmd="ls -l" # You'll even get the output
+```console
+$ cap remote:command -s cmd="ls -l"
+you'll even get the output here...
+```
 
 Similar tasks exist for rake, thor and runner. Try `cap -T remote`. Note:
 runner does not put to the STDOUT anything.
+
+```console
+$ cap remote:rake -s cmd="db:drop" && echo "What have I done!"
+$ cap remote:thor -s cmd="thor:task"
+$ cap remote:runner -s cmd="1000**1000 while true" && echo "Computers should compute"
+```
 
 Don't forget to use `-s` option. Also wrap `cmd=` argument in quotes.
 Yeah, this is not comfortable, but it's intentional. Consider it a
