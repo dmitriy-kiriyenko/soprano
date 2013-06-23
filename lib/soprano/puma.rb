@@ -1,7 +1,7 @@
 Capistrano::Configuration.instance(:must_exist).load do
 
   def puma_sock
-    fetch :puma_sock, 'unix://#{File.join([shared_path, "puma.sock"])}'
+    fetch :puma_sock, "unix://#{File.join([shared_path, "puma.sock"])}"
   end
 
   def puma_conf
