@@ -64,10 +64,46 @@ Capistrano::Configuration.instance(:must_exist).load do
         download_backup
         load_backup
       end
+
+      desc <<-DESC
+      Crete database.yml into shared path to symlink it each deploy to the config folder
+      DESC
+      task :create_yml do
+    db_config = ERB.new <<-EOF
+#{rails_env}:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: #{application}
+  pool: 5
+  username: root
+  password:
+  host: localhost
+    EOF
+
+        run "mkdir -p #{File.join [shared_path, "config"]}"
+        put db_config.result, File.join([shared_path, "config", "database.yml"])
+      end
+
+      desc <<-DESC
+      Symlink shared database.yml to the config folder
+      DESC
+      task :symlink do
+        run "ln -nfs #{File.join [shared_path, "config", "database.yml"]} #{File.join [release_path, "config", "database.yml"]}"
+      end
+
     end
   end
 
   on :load do
+    if fetch(:create_shared_database_file_before_deploy_setup, false)
+      before "deploy:setup", "soprano:db:create_yml"
+
+      if fetch(:autosymlink_shared_database_file, true)
+        after "deploy:update_code", "soprano:db:symlink"
+      end
+    end
+
     if fetch(:setup_database_after_deploy_setup, false)
       after "deploy:setup", "soprano:db:setup"
     end
