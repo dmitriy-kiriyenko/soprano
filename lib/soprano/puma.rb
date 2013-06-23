@@ -55,4 +55,11 @@ activate_control_app
 
   end
 
+  on :load do
+    if fetch(:create_puma_config, false)
+      before "deploy:setup", "deploy:init_config"
+    end
+  end
+
+
 end
