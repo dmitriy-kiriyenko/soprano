@@ -5,7 +5,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   end
 
   def puma_conf
-    fetch :puma_conf, File.join [shared_path, "config", "puma.rb"]
+    fetch :puma_conf, File.join([shared_path, "config", "puma.rb"])
   end
 
   def puma_pid
