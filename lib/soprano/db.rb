@@ -98,7 +98,10 @@ Capistrano::Configuration.instance(:must_exist).load do
   on :load do
     if fetch(:create_shared_database_file_before_deploy_setup, false)
       before "deploy:setup", "soprano:db:create_yml"
-      after "deploy:update_code", "soprano:db:symlink"
+
+      if fetch(:autosymlink_shared_database_file, true)
+        after "deploy:update_code", "soprano:db:symlink"
+      end
     end
 
     if fetch(:setup_database_after_deploy_setup, false)
