@@ -35,9 +35,6 @@ Capistrano::Configuration.instance(:must_exist).load do
     desc "Creating config for application"
     task :init_config, :roles => :app do
       db_config = ERB.new <<-EOF
-app_path = "#{deploy_to}"
-shared_path = "#{shared_path}"
-
 environment "production"
 
 threads 2,2
