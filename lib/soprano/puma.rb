@@ -16,25 +16,25 @@ Capistrano::Configuration.instance(:must_exist).load do
     fetch :puma_state, File.join([shared_path, "puma.state"])
   end
 
-namespace :deploy do
-  desc "Start application."
-  task :start, :roles => :app do
-    run "service puma start #{application}"
-  end
+  namespace :deploy do
+    desc "Start application."
+    task :start, :roles => :app do
+      run "service puma start #{application}"
+    end
 
-  desc "Stop application."
-  task :stop, :roles => :app do
-    run "service puma stop #{application}"
-  end
+    desc "Stop application."
+    task :stop, :roles => :app do
+      run "service puma stop #{application}"
+    end
 
-  desc "Restart application."
-  task :restart, :roles => :app do
-    run "service puma restart #{application}"
-  end
+    desc "Restart application."
+    task :restart, :roles => :app do
+      run "service puma restart #{application}"
+    end
 
-  desc "Creating config for application"
-  task :init_config, :roles => :app do
-    db_config = ERB.new <<-EOF
+    desc "Creating config for application"
+    task :init_config, :roles => :app do
+      db_config = ERB.new <<-EOF
 app_path = "#{deploy_to}"
 shared_path = "#{shared_path}"
 
@@ -47,12 +47,12 @@ pidfile "#{puma_pid}"
 state_path "#{puma_state}"
 
 activate_control_app
-    EOF
+      EOF
 
-    run "mkdir -p #{File.dirname(puma_pid)}"
-    put db_config.result, puma_conf
+      run "mkdir -p #{File.dirname(puma_pid)}"
+      put db_config.result, puma_conf
+    end
+
   end
-
-end
 
 end
